@@ -1,14 +1,11 @@
 import { useFruits } from '../hooks/useFruits.ts'
+import { Todo } from './todo.tsx'
 
 function App() {
-  const { data } = useFruits()
-
   return (
     <>
-      <div className="app">
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>
-      </div>
+      <h1>To Do:</h1>
+      <Todo />
     </>
   )
 }

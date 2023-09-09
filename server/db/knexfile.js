@@ -4,6 +4,7 @@ import * as URL from 'node:url'
 const __filename = URL.fileURLToPath(import.meta.url)
 const __dirname = Path.dirname(__filename)
 
+
 export default {
   development: {
     client: 'sqlite3',

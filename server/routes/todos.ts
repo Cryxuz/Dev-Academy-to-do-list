@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const task = req.body
   const addedTask = await addTasks(task)
-  console.log('this is a serve side route')
   res.json(addedTask)
 })
 

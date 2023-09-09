@@ -12,14 +12,9 @@ export function Todo() {
   }
   return (
     <div>
-      <form action="" method="post">
-        <label htmlFor="task">Enter Task:</label>
-        <input name="task" type="text" />
-        <button>Add Task</button>
-      </form>
       {todo.map((el: any) => {
         return (
-          <li key={todo.id}>
+          <li key={el.id}>
             <input type="checkbox" />
             {el.task}
           </li>

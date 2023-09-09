@@ -11,4 +11,11 @@ export async function addTasks(task: Tasks): Promise<Tasks[]> {
   return db('todo')
     .insert({ ...task })
     .returning(['id', 'task'])
+    .then((addedTask) => {
+      return addedTask[0]
+    })
+}
+
+export async function delTask(id: number) {
+  return db('todo').where({ id }).delete()
 }

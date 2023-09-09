@@ -13,6 +13,8 @@ export async function getTasks() {
 }
 
 export async function addTasks(task: Tasks) {
-  const addedTask = await request.post(rootUrl).send(task)
+  const addedTask = await request.post(`${rootUrl}/todo`).send(task)
   return addedTask.body
 }
+
+// export async function delTask

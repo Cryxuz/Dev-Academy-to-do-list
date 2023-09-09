@@ -22,4 +22,8 @@ router.post('/', async (req, res) => {
   res.json(addedTask)
 })
 
+router.delete('/:id', async (req, res) => {
+  const id = Number(req.params.id)
+  await db.delTask(id)
+})
 export default router

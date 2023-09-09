@@ -1,4 +1,3 @@
-import { useFruits } from '../hooks/useFruits.ts'
 import AddTasks from './AddTasks.tsx'
 import { Todo } from './todo.tsx'
 

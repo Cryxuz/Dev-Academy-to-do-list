@@ -17,4 +17,7 @@ export async function addTasks(task: Tasks) {
   return addedTask.body
 }
 
-// export async function delTask
+export async function delTask(id: number) {
+  await request.delete(`${rootUrl}/todo/${id}`)
+  console.log('api client delete function')
+}

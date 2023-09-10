@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { delTask, getTasks } from '../apis/apiClient'
 import { Tasks } from '../../models/todos'
 
 export function Todo() {
   const { data: todo, isLoading, error } = useQuery(['todo'], getTasks)
 
-  // finish the useState to update the page everytime a user deletes a task
-  const [task, setTask] = useState()
+  const queryClient = useQueryClient()
   if (error) {
     return <p>Something went wrong.</p>
   }
@@ -26,6 +25,10 @@ export function Todo() {
     console.log('delete button component')
     console.log(taskId)
     await delTask(taskId)
+
+    // ask facilitator whats wrong.
+
+    queryClient.invalidateQueries(['todo'])
   }
 
   return (
@@ -33,9 +36,11 @@ export function Todo() {
       {todo.map((el: any) => {
         return (
           <li key={el.id}>
+            <button onClick={(event) => handleDelete(event, el.id)}>
+              Delete Task
+            </button>
             <input type="checkbox" />
             {el.task}
-            <button onClick={(event) => handleDelete(event, el.id)}>X</button>
           </li>
         )
       })}

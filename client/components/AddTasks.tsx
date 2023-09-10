@@ -40,8 +40,9 @@ export default function AddTasks() {
   return (
     <div>
       <form onSubmit={handleSubmit} method="post">
-        <label htmlFor="task">Enter Task:</label>
+        <label htmlFor="task">Enter Task</label>
         <input
+          placeholder="Enter Task"
           name="task"
           type="text"
           value={newTask.task}

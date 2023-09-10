@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { delTask, getTasks } from '../apis/apiClient'
 import { Tasks } from '../../models/todos'
+import { EditTasks } from './EditTasks'
 
 export function Todo() {
   const { data: todo, isLoading, error } = useQuery(['todo'], getTasks)
-
   const queryClient = useQueryClient()
+  const delMutation = useMutation(delTask, {
+    onSuccess: () => {
+      // Refetching the tasks after a successful mutation to update the data
+      console.log('hello')
+      queryClient.invalidateQueries(['todo'])
+    },
+  })
+
   if (error) {
     return <p>Something went wrong.</p>
   }
@@ -22,13 +30,9 @@ export function Todo() {
   ) {
     event.preventDefault() // this prevents the default form submission behavior
 
-    console.log('delete button component')
-    console.log(taskId)
-    await delTask(taskId)
-
-    // ask facilitator whats wrong.
-
-    queryClient.invalidateQueries(['todo'])
+    // console.log('delete button component')
+    // console.log(taskId)
+    delMutation.mutate(taskId)
   }
 
   return (
@@ -36,6 +40,7 @@ export function Todo() {
       {todo.map((el: any) => {
         return (
           <li key={el.id}>
+            <EditTasks id={el.id} />
             <button onClick={(event) => handleDelete(event, el.id)}>
               Delete Task
             </button>

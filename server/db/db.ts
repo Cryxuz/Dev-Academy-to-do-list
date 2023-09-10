@@ -15,12 +15,11 @@ export async function addTasks(task: Tasks): Promise<Tasks[]> {
       return addedTask[0]
     })
 }
-export async function editTasks(task: Tasks) {
-  return db('todo')
-    .returning(['id', 'task'])
-    .update({ ...task })
-    .where('id', task.id)
+
+export async function editTasks(id: number, task: Tasks) {
+  return db('todo').returning('id').update({ task }).where('id', id)
 }
+
 export async function delTask(id: number) {
   return db('todo').where({ id }).delete()
 }

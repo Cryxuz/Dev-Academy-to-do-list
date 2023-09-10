@@ -22,10 +22,13 @@ router.post('/', async (req, res) => {
   res.json(addedTask)
 })
 
-router.patch('/', async (req, res) => {
-  const task = req.body
-  const updateTask = await db.editTasks(task)
-  res.json(updateTask)
+router.patch('/:id', async (req, res) => {
+  const task = req.body.tasks
+  console.log(typeof task)
+  const id = Number(req.params.id)
+  await db.editTasks(id, task)
+
+  // res.json(updateTask)
 })
 
 router.delete('/:id', async (req, res) => {

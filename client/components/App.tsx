@@ -1,5 +1,6 @@
 import AddTasks from './AddTasks.tsx'
-import { Todo } from './todo.tsx'
+import { EditTasks } from './EditTasks.tsx'
+import { Todo } from './Todo.tsx'
 
 function App() {
   return (

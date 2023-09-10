@@ -10,6 +10,7 @@ const emptyTask: any = {
 export default function AddTasks() {
   const [newTask, setNewTask] = useState(emptyTask)
 
+  //
   const handleChange = (event: any) => {
     const { name, value } = event.target
     setNewTask({

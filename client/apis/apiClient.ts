@@ -17,13 +17,15 @@ export async function addTasks(task: Tasks) {
   return addedTask.body
 }
 
-export async function editTasks(task: Tasks) {
-  const editedTask = await request.patch(`${rootUrl}/todo`).send(task)
-  console.log(editedTask.body)
-  return editedTask.body
+export async function editTasks({ id, tasks }: Tasks) {
+  console.log(id)
+  console.log(tasks)
+  await request.patch(`${rootUrl}/todo/${id}`).send({ tasks })
+  // console.log(editedTask)
+  // return editedTask
 }
 
 export async function delTask(id: number) {
   await request.delete(`${rootUrl}/todo/${id}`)
-  console.log('api client delete function')
+  // console.log('api client delete function')
 }

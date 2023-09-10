@@ -1,26 +1,66 @@
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { ChangeEvent, useState } from 'react'
 import { editTasks, getTasks } from '../apis/apiClient'
-
+import Modal from 'react-modal'
 const initialFormData = {
   id: 0,
   task: '',
 }
-
-export function EditTasks() {
+interface Props {
+  id: number
+}
+export function EditTasks({ id }: Props) {
   const [form, setForm] = useState(initialFormData)
-  const { data: task, error, isLoading } = useQuery(['todo'], getTasks)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const queryClient = useQueryClient()
+  const editMutation = useMutation(editTasks, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(['todo'])
+    },
+  })
 
   async function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    // connected to line 55
     const { name, value } = event.target
+    console.log(name, value)
     const newForm = { ...form, [name]: value }
     setForm(newForm)
   }
 
-  async function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    await editTasks()
+    editMutation.mutate({ id, tasks: form.task })
     setForm(initialFormData)
   }
-  return <></>
+
+  // closing and opening the form when edit button is clicekd.
+  function openModal() {
+    setIsModalOpen(true)
+  }
+
+  function closeModal() {
+    setIsModalOpen(false)
+  }
+
+  return (
+    <>
+      <button onClick={openModal}>Edit Task</button>
+
+      <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
+        <h2>Edit Task</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="task"
+            value={form.task}
+            onChange={handleChange}
+            placeholder="Edit Task"
+          />
+          <button type="submit">Save</button>
+          <button onClick={closeModal}>Cancel</button>
+        </form>
+      </Modal>
+    </>
+  )
 }

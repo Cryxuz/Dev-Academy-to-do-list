@@ -21,9 +21,8 @@ export function EditTasks({ id }: Props) {
   })
 
   async function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    // connected to line 55
+    // connected to line 62 {form.task}
     const { name, value } = event.target
-    console.log(name, value)
     const newForm = { ...form, [name]: value }
     setForm(newForm)
   }

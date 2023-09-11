@@ -24,7 +24,6 @@ router.post('/', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
   const task = req.body.tasks
-  console.log(typeof task)
   const id = Number(req.params.id)
   await db.editTasks(id, task)
   res.sendStatus(200)

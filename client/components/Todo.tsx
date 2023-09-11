@@ -9,12 +9,6 @@ export function Todo() {
 
   const { data: todo, isLoading, error } = useQuery(['todo'], getTasks)
 
-  // Date
-  const currentDate = new Date()
-  const year = currentDate.getFullYear()
-  const month = currentDate.getMonth() + 1
-  const day = currentDate.getDate()
-
   const queryClient = useQueryClient()
   const delMutation = useMutation(delTask, {
     onSuccess: () => {

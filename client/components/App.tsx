@@ -11,3 +11,5 @@ function App() {
 }
 
 export default App
+// onClick checkbox scratch the words and make color gray
+// Wave, and deploy to dokku

@@ -45,7 +45,7 @@ export function Todo() {
               <button onClick={(event) => handleDelete(event, el.id)}>
                 Delete Task
               </button>
-              <input type="checkbox" />
+              <input name="checkbox" type="checkbox" />
               {el.task}
             </li>
           )

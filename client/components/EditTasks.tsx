@@ -65,7 +65,7 @@ export function EditTasks({ id }: Props) {
           />
           <button type="submit">Save</button>
           <button className="close-modal" onClick={closeModal}>
-            Cancel
+            Close
           </button>
         </form>
       </Modal>

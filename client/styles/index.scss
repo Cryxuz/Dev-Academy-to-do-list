@@ -88,7 +88,9 @@ li {
 input[type="checkbox"] {
   margin-right: 10px;
 }
-
+.completed {
+  text-decoration: line-through;
+}
 /* Button style for deleting tasks in Todo */
 button {
   background-color: #ff5555;

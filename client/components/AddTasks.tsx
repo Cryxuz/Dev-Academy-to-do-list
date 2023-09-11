@@ -10,7 +10,7 @@ const emptyTask: any = {
 export default function AddTasks() {
   const [newTask, setNewTask] = useState(emptyTask)
 
-  //
+  // handling change
   const handleChange = (event: any) => {
     const { name, value } = event.target
     setNewTask({
@@ -39,9 +39,10 @@ export default function AddTasks() {
   }
 
   return (
-    <div>
+    <div className="input">
+      <h1>To Do List:</h1>
       <form onSubmit={handleSubmit} method="post">
-        <label htmlFor="task">Enter Task</label>
+        <label htmlFor="task">Add New Task</label>
         <input
           placeholder="Enter Task"
           name="task"

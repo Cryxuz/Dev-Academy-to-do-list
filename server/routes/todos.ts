@@ -27,13 +27,13 @@ router.patch('/:id', async (req, res) => {
   console.log(typeof task)
   const id = Number(req.params.id)
   await db.editTasks(id, task)
-
-  // res.json(updateTask)
+  res.sendStatus(200)
 })
 
 router.delete('/:id', async (req, res) => {
   const id = Number(req.params.id)
   await db.delTask(id)
+  res.sendStatus(200)
 })
 
 export default router

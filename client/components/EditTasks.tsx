@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { ChangeEvent, useState } from 'react'
 import { editTasks, getTasks } from '../apis/apiClient'
 import Modal from 'react-modal'
@@ -45,9 +45,15 @@ export function EditTasks({ id }: Props) {
 
   return (
     <>
-      <button onClick={openModal}>Edit Task</button>
+      <button className="edit-btn" onClick={openModal}>
+        Edit Task
+      </button>
 
-      <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
+      <Modal
+        className="modal-content"
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+      >
         <h2>Edit Task</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -58,7 +64,9 @@ export function EditTasks({ id }: Props) {
             placeholder="Edit Task"
           />
           <button type="submit">Save</button>
-          <button onClick={closeModal}>Cancel</button>
+          <button className="close-modal" onClick={closeModal}>
+            Cancel
+          </button>
         </form>
       </Modal>
     </>

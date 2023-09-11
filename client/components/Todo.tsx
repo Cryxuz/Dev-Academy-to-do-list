@@ -36,19 +36,21 @@ export function Todo() {
   }
 
   return (
-    <div>
-      {todo.map((el: any) => {
-        return (
-          <li key={el.id}>
-            <EditTasks id={el.id} />
-            <button onClick={(event) => handleDelete(event, el.id)}>
-              Delete Task
-            </button>
-            <input type="checkbox" />
-            {el.task}
-          </li>
-        )
-      })}
+    <div className="container">
+      <div className="list-container">
+        {todo.map((el: any) => {
+          return (
+            <li key={el.id}>
+              <EditTasks id={el.id} />
+              <button onClick={(event) => handleDelete(event, el.id)}>
+                Delete Task
+              </button>
+              <input type="checkbox" />
+              {el.task}
+            </li>
+          )
+        })}
+      </div>
     </div>
   )
 }

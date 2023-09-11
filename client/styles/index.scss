@@ -1,6 +1,208 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
-html, 
+/* Global styles */
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Container for AddTasks component */
+.input {
+  max-width: 400px;
+  margin: 5% auto 1%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 80%;
+}
+
+/* Form title style */
+.input h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form label style */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Input field style */
+input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Button style for adding tasks */
+button[type="submit"] {
+  background-color: #55aa55;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto; 
+  display: block; 
+  width: 20%;
+  text-align: center;
+}
+/* Button hover effect */
+button[type="submit"]:hover {
+  background-color: #339933;
+}
+
+/* Container for Todo component */
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for each individual task in Todo */
+li {
+  list-style: none;
+  margin: 10px 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Checkbox style */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Button style for deleting tasks in Todo */
+button {
+  background-color: #ff5555;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 2px;
+  margin-right: 1%;
+}
+.edit-btn {
+  background-color: #007bff;
+}
+.edit-btn:hover {
+  background-color: #24578d;
+}
+/* Button hover effect for deleting tasks in Todo */
+button:hover {
+  background-color: #ff3333;
+}
+
+/* Button style for editing tasks in EditTasks */
+button.edit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Button hover effect for editing tasks in EditTasks */
+button.edit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the Modal in EditTasks */
+/* Modal content */
+.modal-content {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal title */
+.modal-content {
+ 
+  max-width: 550px; 
+  // width: 150px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10%;
+}
+
+/* Modal form input */
+.modal-content input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+ 
+}
+.close-modal {
+  display: block;
+  width: 20%;
+  margin: auto;
+  height: 2rem;
+  margin-top: 1%;
+}
+/* Modal buttons */
+.modal-content button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal button styles */
+.modal-content button.save-button {
+  background-color: #55aa55;
+  color: #fff;
+  margin-right: 10px; 
+}
+
+.modal-content button.cancel-button {
+  background-color: #ff5555;
+  color: #fff;
+  margin-left: 10px; 
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .input {
+    max-width: 50%;
+  }
+  
+  .container {
+    max-width: 50%;
+  }
+  input[type="text"] {
+    width: 97%;
+  }
 }

@@ -11,5 +11,7 @@ function App() {
 }
 
 export default App
-// onClick checkbox scratch the words and make color gray
-// Wave, and deploy to dokku
+// onClick checkbox text-decoration = line-through
+// ask help from facilitator with the typescript errors
+// fix Wave alerts, errors, and contrast
+// deploy to dokku

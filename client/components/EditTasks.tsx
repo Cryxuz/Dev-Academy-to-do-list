@@ -54,9 +54,10 @@ export function EditTasks({ id }: Props) {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
       >
-        <h2>Edit Task</h2>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="task">Edit Task</label>
           <input
+            id="task"
             type="text"
             name="task"
             value={form.task}

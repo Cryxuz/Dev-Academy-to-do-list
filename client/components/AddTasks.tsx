@@ -44,11 +44,13 @@ export default function AddTasks() {
       <form onSubmit={handleSubmit} method="post">
         <label htmlFor="task">Add New Task</label>
         <input
+          id="task"
           placeholder="Enter Task"
           name="task"
           type="text"
           value={newTask.task}
           onChange={handleChange}
+          title="new-task"
         />
         <button type="submit" disabled={mutation.isLoading}>
           {mutation.isLoading ? 'Adding Task...' : 'Add Task'}

@@ -8,6 +8,13 @@ export function Todo() {
   const [checkedTasks, setCheckedTasks] = useState([])
 
   const { data: todo, isLoading, error } = useQuery(['todo'], getTasks)
+
+  // Date
+  const currentDate = new Date()
+  const year = currentDate.getFullYear()
+  const month = currentDate.getMonth() + 1
+  const day = currentDate.getDate()
+
   const queryClient = useQueryClient()
   const delMutation = useMutation(delTask, {
     onSuccess: () => {
@@ -49,19 +56,26 @@ export function Todo() {
         {todo.map((el: any) => {
           return (
             <li key={el.id}>
-              <EditTasks id={el.id} />
-              <button onClick={(event) => handleDelete(event, el.id)}>
-                Delete Task
-              </button>
-              <input
-                name="checkbox"
-                type="checkbox"
-                checked={checkedTasks.includes(el.id)}
-                onChange={(event) => handleCheckboxChange(event, el.id)}
-              />
-              <span className={checkedTasks.includes(el.id) ? 'completed' : ''}>
-                {el.task}
-              </span>
+              <fieldset>
+                <legend></legend>
+                <label>
+                  <input
+                    name="checkbox"
+                    type="checkbox"
+                    checked={checkedTasks.includes(el.id)}
+                    onChange={(event) => handleCheckboxChange(event, el.id)}
+                  />
+                  <span
+                    className={checkedTasks.includes(el.id) ? 'completed' : ''}
+                  >
+                    {el.task}
+                  </span>
+                </label>
+                <EditTasks id={el.id} />
+                <button onClick={(event) => handleDelete(event, el.id)}>
+                  Delete Task
+                </button>
+              </fieldset>
             </li>
           )
         })}

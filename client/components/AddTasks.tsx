@@ -53,6 +53,7 @@ export default function AddTasks() {
           value={newTask.task}
           onChange={handleChange}
           title="new-task"
+          required
         />
         <button type="submit" disabled={mutation.isLoading}>
           {mutation.isLoading ? 'Adding Task...' : 'Add Task'}

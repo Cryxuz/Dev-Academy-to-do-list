@@ -52,28 +52,34 @@ export function Todo() {
       <div className="list-container">
         {todo.map((el) => {
           return (
-            <li key={el.id}>
-              <fieldset>
-                <legend></legend>
-                <label>
-                  <input
-                    name="checkbox"
-                    type="checkbox"
-                    checked={checkedTasks.includes(el.id)}
-                    onChange={(event) => handleCheckboxChange(event, el.id)}
-                  />
-                  <span
-                    className={checkedTasks.includes(el.id) ? 'completed' : ''}
-                  >
-                    {el.tasks}
-                  </span>
-                </label>
-                <EditTasks id={el.id} />
-                <button onClick={(event) => handleDelete(event, el.id)}>
-                  Delete Task
-                </button>
-              </fieldset>
-            </li>
+            <>
+              <ul>
+                <li key={el.id}>
+                  <fieldset>
+                    <legend></legend>
+                    <label>
+                      <input
+                        name="checkbox"
+                        type="checkbox"
+                        checked={checkedTasks.includes(el.id)}
+                        onChange={(event) => handleCheckboxChange(event, el.id)}
+                      />
+                      <span
+                        className={
+                          checkedTasks.includes(el.id) ? 'completed' : ''
+                        }
+                      >
+                        {el.task}
+                      </span>
+                    </label>
+                    <EditTasks id={el.id} />
+                    <button onClick={(event) => handleDelete(event, el.id)}>
+                      Delete Task
+                    </button>
+                  </fieldset>
+                </li>
+              </ul>
+            </>
           )
         })}
       </div>

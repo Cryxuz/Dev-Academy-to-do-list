@@ -1,11 +1,11 @@
 import request from 'superagent'
-import { Tasks } from '../../models/todos'
+import { Tasks, Task } from '../../models/todos'
 
 const rootUrl = '/api/v1'
 
 export async function getTasks() {
   const dbTodo = await request.get(`${rootUrl}/todo`)
-  return dbTodo.body as Tasks[]
+  return dbTodo.body as Task[]
 }
 
 export async function addTasks(task: Tasks) {

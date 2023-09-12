@@ -45,7 +45,7 @@ export function EditTasks({ id }: Props) {
   return (
     <>
       <button className="edit-btn" onClick={openModal}>
-        <img src="client/public/images/edit.png" alt="edit-button-icon" />
+        <img src="/images/edit.png" alt="edit-button-icon" />
       </button>
       <Modal
         className="modal-content"

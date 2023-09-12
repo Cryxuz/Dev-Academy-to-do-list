@@ -74,10 +74,7 @@ export function Todo() {
                     </label>
                     <EditTasks id={el.id} />
                     <button onClick={(event) => handleDelete(event, el.id)}>
-                      <img
-                        src="client/public/images/delete.png"
-                        alt="add-button-icon"
-                      />
+                      <img src="/images/delete.png" alt="add-button-icon" />
                     </button>
                   </fieldset>
                 </li>

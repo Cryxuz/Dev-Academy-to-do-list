@@ -42,7 +42,9 @@ export default function AddTasks() {
     <div className="input">
       <h1>To Do List:</h1>
       <form onSubmit={handleSubmit} method="post">
-        <label htmlFor="task">Add New Task</label>
+        <label className="add-task-label" htmlFor="task">
+          Add New Task
+        </label>
         <input
           id="task"
           placeholder="Enter Task"
